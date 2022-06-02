@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: Zaras_musical_equipment_development
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= 'epicodus' %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -58,6 +60,8 @@ development:
 test:
   <<: *default
   database: Zaras_musical_equipment_test
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= 'epicodus' %>
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -81,5 +85,5 @@ test:
 production:
   <<: *default
   database: Zaras_musical_equipment_production
-  username: Zaras_musical_equipment
-  password: <%= ENV['ZARAS_MUSICAL_EQUIPMENT_DATABASE_PASSWORD'] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= 'epicodus' %>
