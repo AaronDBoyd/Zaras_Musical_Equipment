@@ -5,4 +5,9 @@ class ProductsController < ApplicationController
     render :index
   end
 
+  def new
+    @product = Product.new
+    render :new
+  end
+
 end
