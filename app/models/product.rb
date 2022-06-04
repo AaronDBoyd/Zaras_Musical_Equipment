@@ -10,6 +10,7 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(1)
     )}
+  scope :search, -> (name_parameter) { where("name ilike ?", "%#{name_parameter}%")}  
 
   validates :name, presence: true
   validates :cost, presence: true
