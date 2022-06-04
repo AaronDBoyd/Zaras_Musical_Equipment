@@ -1,18 +1,17 @@
 Product.destroy_all
 
 product_id_array = []
-country_array = ["USA", Faker::WorldCup.team]
+
 50.times do |index|
+  country_array = ["USA", Faker::WorldCup.team, Faker::WorldCup.team, Faker::WorldCup.team]
   Product.create!(name: Faker::Music.instrument,
                   cost: Faker::Number.within(range: 1..1000),
                   country_of_origin: country_array.sample ) 
 
-      product_id_array.push(Product.last.id)                  
+  product_id_array.push(Product.last.id)                  
 end
 
 p "Created #{Product.count} products."
-
-p "product_id list: #{product_id_array}"
 
 product_id_array.each do |num|
   5.times do |index|
