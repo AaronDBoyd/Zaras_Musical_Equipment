@@ -1,7 +1,7 @@
 <h1><%= @product.name %></h1>
-<h3><%= @product.cost %></h3>
-<h4>Made in:</h4>
-<h4><%= @product.country_of_origin %></h4>
+<h3>Price:  $<%= @product.cost %></h3>
+<h4>Made in: <%= @product.country_of_origin %></h4>
+
 
 <% if @product.reviews.any? %>
   <h4>Here are the reviews for this product:</h4>
