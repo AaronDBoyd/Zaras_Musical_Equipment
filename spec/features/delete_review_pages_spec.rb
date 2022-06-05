@@ -10,8 +10,6 @@ describe "the delete a review process" do
       content: 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz',
       rating: 2, product_id: product.id})
     visit product_review_path(product, review)
-    # click_on 'Slide Whistle'
-    # click_on 'Some Person'
     click_on 'Delete review'
     expect(page).to have_content 'Review successfully DESTROYED!!'
     expect(page).to have_no_content 'Some Person'
