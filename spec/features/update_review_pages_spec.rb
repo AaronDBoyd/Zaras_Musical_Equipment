@@ -2,14 +2,11 @@ require 'rails_helper'
 
 describe 'the edit a review process' do
   before :each do 
-    product = Product.create({name: "Guitar", cost: 40, country_of_origin: 'Japan'})
+    product = Product.create({name: "Slide Whistle", cost: 40, country_of_origin: 'Japan'})
     review = Review.create({author: 'some person', 
       content: 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz',
       rating: 2, product_id: product.id})
-    visit products_path
-    click_on "Guitar"
-    click_on 'Some Person'
-    click_on 'Edit review'
+    visit edit_product_review_path(product,review)
   end
 
   it 'edits a review' do
