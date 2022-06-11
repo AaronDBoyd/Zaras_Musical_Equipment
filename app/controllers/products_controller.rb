@@ -1,5 +1,16 @@
 class ProductsController < ApplicationController
 
+  def home
+    if params[:sort] == "usa"
+      @products = Product.usa
+    elsif params[:sort] == "most_reviews"
+      @products = Product.most_reviews
+    else params[:sort] == "recent"
+      @products = Product.last_three
+    end 
+    render :home
+  end
+
   def index
     @products = Product.all
     render :index
