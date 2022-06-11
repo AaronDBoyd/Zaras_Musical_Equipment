@@ -13,6 +13,11 @@
   </head>
 
   <body class="container">
+
+  <%= form_tag products_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Find Products" %>
+        <%= submit_tag "Search" %>
+      <% end %>
     <header class="container">
       <h1>Zara's Musical Equipment</h1>
     </header>

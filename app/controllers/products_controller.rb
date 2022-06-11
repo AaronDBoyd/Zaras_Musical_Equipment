@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.paginate(:page => params[:page], per_page:10)
+    @products = Product.search(params[:search]).paginate(:page => params[:page], per_page:10)
     render :index
   end
 

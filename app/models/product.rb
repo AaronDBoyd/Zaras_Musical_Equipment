@@ -10,7 +10,13 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(1)
     )}
-  scope :search, -> (name_parameter) { where("name ilike ?", "%#{name_parameter}%")}  
+    def self.search(search)
+      if search
+        where(["name ILIKE ?","%#{search}%"])
+      else
+        all
+      end
+    end  
 
   validates :name, presence: true
   validates :cost, presence: true
