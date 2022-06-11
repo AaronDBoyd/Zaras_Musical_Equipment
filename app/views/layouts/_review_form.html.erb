@@ -1,11 +1,19 @@
 <%= render "layouts/errors", :object => @review %>
 
 <%= form_for [@product, @review] do |f| %>
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.label :rating %>
-  <%= f.select :rating, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]] %>
-  <p><%= f.submit %></p>
+  <div class="field form-group">
+    <%= f.text_field :author, class:'form-control', placeholder: "Author" %>
+  </div>
+<br> 
+  <div class="field form-group">
+    <%= f.text_area :content, class:'form-control', placeholder: "Content" %>
+  </div>
+<br>
+  <div class="field form-group">
+    <%= f.select :rating, [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]] %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit class:'btn btn-secondary' %>
+  </div>
 <% end %>

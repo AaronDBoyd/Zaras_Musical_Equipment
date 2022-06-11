@@ -1,18 +1,30 @@
-
-
-<div class="wrapper">
-<h3>Here is our full list of Products</h3>
-<p><%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %></p>
+<div class="jumbotron">
+  <table class='table table-striped table-bordered table-hover'>
+    <thead class='thead-dark'>
+      <tr>
+        <th>Here is our full list of Products</th>  
+      </tr>
+    </thead>
+    <tbody>
+    <% if @products.any? %>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= link_to product.name, product_path(product) %></td>
+        </tr>
+      <% end %>
+      <% else %>
+        <p>There are currently no products.</p>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class='row'>
+  <div class='col-sm'>
+    <%= will_paginate @post,renderer: BootstrapPagination::Rails %>
+  </div>
+  <div class='col-sm-3'>
+    <%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %>
+  </div>
 </div>
 
-<% if @products.any? %>
-  <ul>
-    <% @products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no products yet.</p>
-<% end %>
-<p><%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %></p>
 

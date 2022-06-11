@@ -1,11 +1,13 @@
-<h1>Review: <%= @review.author %></h1>
-<h2>Product: <%= @product.name %></h2>
-<h3>Rating: <%= @review.rating %>
-<h3><%= @review.content %></h3>
 
-<p><%= link_to "Edit review", edit_product_review_path(@product, @review) %></p>
-<p><%= link_to "Delete review", product_review_path(@product, @review),
-                        :data => {:confirm => "Are you sure?",
-                                      :method => "delete"} %></p>
+<div class="jumbotron">
+  <h2>Reviewer: <%= @review.author %></h2>
+  <h3>Product: <%= @product.name %></h3>
+  <h4>Rating: <%= @review.rating %></h4>
+  <h4><%= @review.content %></h4>
 
-<p><%= link_to "Return to product", product_path(@product) %></p>
+  <%= link_to "Edit review", edit_product_review_path(@product, @review), class:"btn btn-secondary" %>
+  <%= link_to "Delete review", product_review_path(@product, @review), class:"btn btn-secondary",                 
+                          :data => {:confirm => "Are you sure?",
+                                        :method => "delete"} %>
+  <%= link_to "Return to product", product_path(@product), class:"btn btn-dark" %>
+</div>

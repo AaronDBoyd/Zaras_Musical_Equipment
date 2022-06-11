@@ -1,21 +1,28 @@
 
-<h4>ZarasMusicalEquipment ,or ZME, is a family owned business that has been passed down for centuries. </h4>
-<p>Many years ago when Zara was just a wee lass, she lived on the magical island of Ireland. One day she was walking along through a quite forest and heard a percussive rhythm coming from a distance. As she aproached she saw woodland creature rocking out on a sick 7 piece drumset. Just as she was opening her mouth to talk to the creature, two birds flew overhead carrying an electric flying-V guitar. The birds placed the strap over her shoulder and the intrument fell into her hands. It fit better than Cinderella's slipper. There no doubt in her mind, she knew it was time to ROCK!! She and her woodland drummer and all of the birds and the trees jammed. In fact, they jammed and rocked and harmonized and synchronized and solo'd until every string on her guitar was was forced to surrender and snap.</p>
-<p>It was at that moment she knew...she knew that she wanted to open up an e-commerce business that sold the best musical equipment at competitive prices and offer free shipping on all orders over $250.</p>
-
+<div class='jumbotron'>
+  <h6>ZarasMusicalEquipment ,or ZME, is a family owned business that has been passed down for centuries. </h6>
+  <h6>Many years ago when Zara was just a wee lass, she lived on the magical island of Ireland. One day she was walking along through a quite forest and heard a percussive rhythm coming from a distance. As she aproached she saw woodland creature rocking out on a sick 7 piece drumset. Just as she was opening her mouth to talk to the creature, two birds flew overhead carrying an electric flying-V guitar. The birds placed the strap over her shoulder and the intrument fell into her hands. It fit better than Cinderella's slipper. There no doubt in her mind, she knew it was time to ROCK!! She and her woodland drummer and all of the birds and the trees jammed. In fact, they jammed and rocked and harmonized and synchronized and solo'd until every string on her guitar was was forced to surrender and snap.</h6>
+  <h6>It was at that moment she knew...she knew that she wanted to open up an e-commerce business that sold the best musical equipment at competitive prices and offer free shipping on all orders over $250.</h6>
+</div>
 <div class="wrapper">
-    <a href="?sort=recent"><button class="btn btn-default">Recently added</button></a>
-    <a href="?sort=most_reviews"><button class="btn btn-default">Most Reviews</button></a>
-    <a href="?sort=usa"><button class="btn btn-default">Made in USA</button></a>
-    <button class="btn btn-default"><%= link_to "All Products", products_path %></button>
-  </div>
+  <a href="?sort=recent"><button class="btn btn-secondary">Recently added</button></a>
+  <a href="?sort=most_reviews"><button class="btn btn-secondary">Most Reviews</button></a>
+  <a href="?sort=usa"><button class="btn btn-secondary">Made in USA</button></a>
+  <%= link_to "All Products", products_path, class:"btn btn-dark" %>
+</div>
 
-  <h1>Products</h1>
-
+<table class='table table-striped table-bordered table-hover'>
+  <thead class='thead-dark'>
+    <tr>
+      <th>Products</th> 
+    </tr>
+  </thead>
   
-  <ul>
+  <tbody>
     <% @products.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
+      <tr>
+      <td><%= link_to product.name, product_path(product) %></td>
+      </tr>
     <% end %>
-  </ul>
-  
+  </tbody>
+</table>
