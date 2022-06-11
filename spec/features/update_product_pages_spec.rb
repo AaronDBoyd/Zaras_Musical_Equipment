@@ -8,7 +8,7 @@ describe 'the edit a product process' do
     click_on 'Edit'
     fill_in 'Name', with: "Trumpet"
     fill_in 'Cost', with: '868'
-    fill_in 'Country of origin', with: 'Croatia'
+    fill_in 'Country of Origin', with: 'Croatia'
     click_on 'Update Product'
     expect(page).to have_content "Product successfully updated!"
   end
