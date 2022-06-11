@@ -1,13 +1,13 @@
 
-<h4>ZarasMusicalEquipment ,or ZME, is a family owned business that has been passed down for centuries. </h4>
-<p>Many years ago when Zara was just a wee lass, she lived on the magical island of Ireland. One day she was walking along through a quite forest and heard a percussive rhythm coming from a distance. As she aproached she saw woodland creature rocking out on a sick 7 piece drumset. Just as she was opening her mouth to talk to the creature, two birds flew overhead carrying an electric flying-V guitar. The birds placed the strap over her shoulder and the intrument fell into her hands. It fit better than Cinderella's slipper. There no doubt in her mind, she knew it was time to ROCK!! She and her woodland drummer and all of the birds and the trees jammed. In fact, they jammed and rocked and harmonized and synchronized and solo'd until every string on her guitar was was forced to surrender and snap.</p>
-<p>It was at that moment she knew...she knew that she wanted to open up an e-commerce business that sold the best musical equipment at competitive prices and offer free shipping on all orders over $250.</p>
-<div class="row">
-<div class="col-md-4">
-<h3>Recently Added Products</h3>
+
+<div class="wrapper">
+<h3>Here is our full list of Products</h3>
+<p><%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %></p>
+</div>
+
 <% if @products.any? %>
   <ul>
-    <% @products.last_three.each do |product| %>
+    <% @products.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
   </ul>
@@ -15,29 +15,4 @@
   <p>There are no products yet.</p>
 <% end %>
 <p><%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %></p>
-</div>
-<div class="col-md-4">
-<h3>Most Reviewed Product</h3>
-<% if @products.most_reviews.any? %>
-  <ul>
-    <% @products.most_reviews.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no products yet.</p>
-<% end %>
-</div>
-<div class="col-md-4">
-<h3>Here is a list of our products that are made in the USA</h3>
-<% if @products.usa.any? %>
-  <ul>
-    <% @products.usa.each do |product| %>
-      <li><%= link_to product.name, product_path(product) %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p>There are no products yet.</p>
-<% end %>
-</div>
-</div>
+
