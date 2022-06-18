@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authorize, except: [:home]
+  # before_action :authorize_admin, except: [:show, :index]
 
   def home
     if params[:sort] == "usa"
@@ -17,8 +19,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
-    render :new
+    if is_admin?
+      @product = Product.new
+      render :new
+    else
+      flash[:alert] = "You aren't authorized to visit that page."
+      redirect_to '/'
+    end    
   end
 
   def create
@@ -32,8 +39,13 @@ class ProductsController < ApplicationController
   end
 
     def edit
-      @product = Product.find(params[:id])
-      render :edit
+      if is_admin?
+        @product = Product.find(params[:id])
+        render :edit
+      else
+        flash[:alert] = "You aren't authorized to visit that page."
+        redirect_to '/'
+      end   
     end
 
     def show

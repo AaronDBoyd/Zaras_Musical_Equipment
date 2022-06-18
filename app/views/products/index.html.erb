@@ -23,7 +23,9 @@
     <%= will_paginate @post,renderer: BootstrapPagination::Rails %>
   </div>
   <div class='col-sm-3'>
-    <%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %>
+    <% if is_admin? %>
+      <%= link_to "Create new product", new_product_path, class: 'btn btn-warning' %>
+    <% end %>  
   </div>
 </div>
 
