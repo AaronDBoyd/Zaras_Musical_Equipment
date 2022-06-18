@@ -1,12 +1,18 @@
-<h1> Sign up</h1>
+<div class="jumbotron">
+<h2> Sign up</h2>
 <%= form_for @user do |f| %>
   <%= f.label "Email" %>
   <%= f.text_field :email %>
+    <br>
   <%= f.label "Password" %>
   <%= f.password_field :password %>
+    <br>
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
+    <br>
   <%= f.label :admin %>
   <%= f.select :admin, [["False", false], ["True", true]] %>
-  <%= f.submit "Sign Up" %>
+    <br>
+  <%= f.submit "Sign Up", class:'btn btn-warning' %>
 <% end %>
+</div>
