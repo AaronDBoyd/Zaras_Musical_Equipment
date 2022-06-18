@@ -17,10 +17,11 @@
   <% end %>
 
   <p><%= link_to "Add a review", new_product_review_path(@product), class: 'btn btn-warning' %></p>
-
-  <%= link_to "Edit", edit_product_path(@product), class:"btn btn-secondary" %>
-  <%= link_to "Delete", product_path(@product), class:"btn btn-secondary",
-                          :data => {:confirm => "You sure?",
-                                    :method => "delete"} %>
+  <% if is_admin? %>
+    <%= link_to "Edit", edit_product_path(@product), class:"btn btn-secondary" %>
+    <%= link_to "Delete", product_path(@product), class:"btn btn-secondary",
+                            :data => {:confirm => "You sure?",
+                                      :method => "delete"} %>
+  <% end %>                                    
   <%= link_to "Return to products", products_path, class:"btn btn-dark" %>
 </div>
