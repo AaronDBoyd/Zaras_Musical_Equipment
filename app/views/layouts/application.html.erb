@@ -21,15 +21,19 @@
         <%= link_to "Sign up", 'signup' %> | <%= link_to "Sign in", '/signin' %>
     <% end %>
 
-  <%= form_tag products_path, :method => 'get' do %>
+    <%= form_tag products_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:search], placeholder: "Find Products" %>
         <%= submit_tag "Search" %>
-      <% end %>
+    <% end %>
     <header class="container">
       <h1>Zara's Musical Equipment</h1>
     </header>
-  <%= flash[:alert] %>
-  <%= flash[:notice] %>
+    <div class="notice alert-warning" role="alert">
+      <%= alert %>
+    </div>
+    <div class="notice alert-primary"> 
+      <%= notice %>
+    </div>  
 
     <%= yield %>
   </body>
