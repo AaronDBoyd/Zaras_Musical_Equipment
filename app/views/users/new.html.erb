@@ -2,13 +2,13 @@
   <h2> Sign up</h2>
   <%= form_for @user do |f| %>
     <%= f.label "Email" %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class:'form-control', placeholder:'Email' %>
       <br>
     <%= f.label "Password" %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class:'form-control', placeholder:'Password' %>
       <br>
     <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class:'form-control', placeholder:'Confirm Password' %>
       <br>
     <%= f.label :admin %>
     <%= f.select :admin, [["False", false], ["True", true]] %>
