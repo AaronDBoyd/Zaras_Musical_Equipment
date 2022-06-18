@@ -2,6 +2,11 @@ require 'rails_helper'
 
 describe 'the edit a product process' do
   it 'edits a product' do
+    User.create({email: "admin", password: "123456", admin: true})
+    visit signin_path
+    fill_in 'Email', with: 'admin'
+    fill_in 'Password', with: '123456'
+    click_on 'Sign In'
     product = Product.create({name: "Guitar", cost: 40, country_of_origin: 'Japan'})
     visit products_path
     click_on "Guitar"
@@ -11,11 +16,5 @@ describe 'the edit a product process' do
     fill_in 'Country of Origin', with: 'Croatia'
     click_on 'Update Product'
     expect(page).to have_content "Product successfully updated!"
-  end
-
-  it "gives an error when no name is entered" do
-    visit new_product_path
-    click_on 'Create Product'
-    expect(page).to have_content "Name can't be blank"
-  end
+  end 
 end
