@@ -25,9 +25,14 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:product_id])
-    @review = Review.find(params[:id])
-    render :edit
+    if is_admin?
+      @product = Product.find(params[:product_id])
+      @review = Review.find(params[:id])
+      render :edit
+    else
+      flash[:alert] = "You aren't authorized to visit that page. Must be an Admin."
+        redirect_to '/'
+    end
   end
 
   def update
