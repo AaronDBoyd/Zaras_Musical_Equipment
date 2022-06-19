@@ -10,6 +10,7 @@ class Product < ApplicationRecord
     .order("reviews_count DESC")
     .limit(1)
     )}
+    
     def self.search(search)
       if search
         where(["name ILIKE ?","%#{search}%"])
