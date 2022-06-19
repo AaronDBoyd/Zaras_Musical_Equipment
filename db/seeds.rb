@@ -1,4 +1,9 @@
 Product.destroy_all
+User.destroy_all
+
+user = User.create!(email: 'user@user.com', password: '123456')
+admin = User.create!(email: 'admin@admin.com', password: '123456', admin: true)
+p "Created #{User.count} users."
 
 product_id_array = []
 
