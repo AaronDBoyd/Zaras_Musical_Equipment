@@ -2,7 +2,7 @@
 
 #### By Aaron Boyd
 
-This application manages a fictional store's inventory (products), and allows users to leave reviews and rate products.
+This application manages a fictional store's inventory (products), and allows users to log-in/out, leave reviews and rate products. It gives users with admin privileges full access to CRUD funtionality. 
 
 ## Technologies used:
 
@@ -15,6 +15,7 @@ This application manages a fictional store's inventory (products), and allows us
 * markdown
 * Postgres
 * SQL
+* Bcrypt
 
 
 ## Description:
@@ -46,6 +47,14 @@ password: <%= ENV['POSTGRES_PASSWORD'] %>
 * `rake db:seed` - this with auto-populate the database.
 * `rails s` - this will run the rails server so the project can be viewed in the browser.(keep this terminal separate from your working terminal.)
 * In a browswer, visit `localhost:3000` to view the webpage.
+
+## Using Webpage
+
+Users that are not signed in will only be only to see the Home page.
+
+To see all Products and leave Reviews you'll need to create a User account by Signing Up and leaving "Admin" False.
+
+To have access to full CRUD functionality you'll need to create an Admin account by Signing Up and changing "Admin" to True. 
 
 ## Known Bugs
 
